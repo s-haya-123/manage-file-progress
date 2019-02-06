@@ -25,6 +25,9 @@
     "webpack-cli": "^3.2.1"
   },
   "dependencies": {
+    "@types/chokidar": "^1.7.5",
+    "aws-sdk": "^2.397.0",
+    "chokidar": "^2.0.4",
     "electron": "^4.0.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"

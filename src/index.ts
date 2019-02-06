@@ -1,4 +1,6 @@
 import { BrowserWindow, app, App, } from 'electron'
+import { Watcher } from './watcher';
+let watcher = new Watcher( './test/');
 
 class SampleApp {
     private mainWindow: BrowserWindow | null = null;
