@@ -1,6 +1,10 @@
 import { BrowserWindow, app, App, } from 'electron'
 import { Watcher } from './watcher';
-let watcher = new Watcher( './test/');
+let watcher = new Watcher( './test/',( path ) => {
+    console.log( path + " added.");
+},( path ) => {
+    console.log( path + " change.");
+});
 
 class SampleApp {
     private mainWindow: BrowserWindow | null = null;

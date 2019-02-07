@@ -4,7 +4,7 @@ import * as chokidar from 'chokidar';
 class Watcher {
     private watcher: chokidar.FSWatcher;
  
-    constructor( path: string ) {
+    constructor( path: string ,addCallback: (path:string)=>void, changeCallback: (path:string)=>void) {
         this.watcher = chokidar.watch( path, {
             ignored:/[\/\\]\./,
             persistent:true
@@ -14,13 +14,8 @@ class Watcher {
             this.watcher.on('ready', () => {
                 console.log("ready watching...");
  
-                this.watcher.on('add', ( path ) => {
-                    console.log( path + " added.");
-                });
- 
-                this.watcher.on('change', ( path ) => {
-                    console.log( path + " changed.");
-                });
+                this.watcher.on('add', addCallback);
+                this.watcher.on('change', changeCallback);
             } );
         } else {
             console.log( 'error' );
